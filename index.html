@@ -19,12 +19,12 @@
             <div id="product-cart">
                 <span id="'cart-image" class="fa fa-shopping-cart"></span>
 
-                <span id="cart-quantity">0</span>
+                <span id="cart-quantity">{{ cart.quantity }}</span>
             </div>
 
             <div class="app-wrapper">
                 <ul>
-                    <product-item v-for="product in products" :productdata="product" :key="product.id"></product-item>
+                    <product-item v-for="product in products" :productdata="product" :key="product.id" @add-to-cart="updateCart"></product-item>
                 </ul>
             </div>
         </div>

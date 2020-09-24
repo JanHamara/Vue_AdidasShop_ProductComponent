@@ -1,3 +1,6 @@
+// After you done, separate product description as a separate component,
+// which receives necessary data via a prop
+
 Vue.component('product-item', {
     template: `
         <li :class="{ disabledProduct : outOfStock }">
@@ -27,6 +30,7 @@ Vue.component('product-item', {
                     </div>
                 </div>
             </div>
+
             <div class="product-description">
                 <span class="pr-edition">{{ title }}</span>
                 <h2 class="pr-name">{{ product.name }}</h2>
@@ -34,10 +38,11 @@ Vue.component('product-item', {
                 <span class="pr-colors">{{ product.colors }} Colors</span>
 
                 <!-- Buy Button -->
-                <div class="pr-buy-button" v-if="selectedVariantQuantity > 0" @click="addToCart()">
+                <div class="pr-buy-button" v-if="selectedVariantQuantity > 0" @click="addToCart(selectedVariantId)">
                     ADD TO CART
                 </div>
             </div>
+
         </li> 
     `,
     props: ['productdata'],
@@ -68,13 +73,9 @@ Vue.component('product-item', {
         hideVariants() {
             this.variantsVisible = false;
         },
-        addToCart() {
-            // this.cart.quantity++;
-            // this.cart.items.push(this.product.variants[this.selectedVariant].id);
+        addToCart(selected) {
+            this.$emit('add-to-cart', selected);
             this.product.variants[this.selectedVariant].quantity--;
-            console.log("Total Quantity:", this.totalQuantity)
-            // console.log("Cart:", this.cart)
-
         },
         updateProductImage(index) {
             this.selectedVariant = index;
@@ -100,6 +101,9 @@ Vue.component('product-item', {
         },
         selectedVariantQuantity() {
             return this.product.variants[this.selectedVariant].quantity
+        },
+        selectedVariantId() {
+            return this.product.variants[this.selectedVariant].id
         }
     }
 });
@@ -113,6 +117,12 @@ const app = new Vue({
             quantity: 0,
             items: []
         },  
+    },
+    methods: {
+        updateCart(e) {
+            this.cart.quantity++;
+            this.cart.items.push(e);
+        }
     },
     created () {
         fetch("https://api.jsonbin.io/b/5f624b007243cd7e823d7bec/13", {
