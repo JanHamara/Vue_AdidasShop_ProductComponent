@@ -35,12 +35,31 @@ body {
   width: 100vw;
   height: 100vh;
 }
+.pr-buy-button {
+  display: inline-block;
+  float: right;
+  background: none;
+  font-size: 0.7vw;
+  padding: 0.3vw 1vw;
+  box-shadow: 0 0 5px darkgray;
+  border: 0.25px darkgray solid;
+  transition: box-shadow 1s;
+}
+.pr-buy-button:hover {
+  background: black;
+  color: white;
+  border: 0.25px black solid;
+  box-shadow: 0 0 10px gray;
+  transition: box-shadow 1s;
+  cursor: pointer;
+}
 body {
   position: relative;
 }
 body #app {
   width: 100%;
   height: 100%;
+  height: auto;
   margin: 0;
   padding: 0;
   padding: 5vw;
@@ -66,6 +85,7 @@ body #app #product-cart #cart-quantity {
 body #app .app-wrapper {
   width: 100%;
   height: 100%;
+  height: auto;
   padding: 5vw;
 }
 body #app .app-wrapper ul {
@@ -80,7 +100,7 @@ body #app .app-wrapper ul {
 body #app .app-wrapper ul li {
   flex: 1;
   margin: 0 1vw;
-  height: auto;
+  height: 100%;
   max-width: 20vw;
   box-shadow: 0 0 15px darkgray;
   transition: transform 1s, box-shadow 1s;
@@ -122,27 +142,42 @@ body #app .app-wrapper ul li .product-description .pr-price {
   margin-bottom: 1vw;
 }
 body #app .app-wrapper ul li .product-description .pr-colors {
-  display: inline-block;
+  display: block;
   font-size: 0.8vw;
   font-weight: 400;
   opacity: 0.8;
+  margin-bottom: 2vw;
 }
-body #app .app-wrapper ul li .product-description .pr-buy-button {
-  display: inline-block;
-  float: right;
+body #app .app-wrapper ul li .product-description .pr-review {
+  text-align: right;
+  display: inline !important;
+  font-size: 0.8vw;
+}
+body #app .app-wrapper ul li .product-description .pr-reviews {
+  height: auto;
+  margin: 2vw auto 0vw;
+  transition: opacity 1s;
+}
+body #app .app-wrapper ul li .product-description .pr-reviews form {
+  height: auto;
+}
+body #app .app-wrapper ul li .product-description .pr-reviews form h6 {
+  font-size: 0.8vw;
+  margin-bottom: 1.4vw;
+}
+body #app .app-wrapper ul li .product-description .pr-reviews input {
+  width: 100%;
   font-size: 0.7vw;
-  padding: 0.3vw 1vw;
-  box-shadow: 0 0 5px darkgray;
-  border: 0.25px darkgray solid;
-  transition: box-shadow 1s;
+  padding: 0.5vw;
+  border: none !important;
+  outline: none !important;
+  background: #eceeef;
+  margin-bottom: 1vw;
 }
-body #app .app-wrapper ul li .product-description .pr-buy-button:hover {
-  background: black;
-  color: white;
-  border: 0.25px black solid;
-  box-shadow: 0 0 10px gray;
-  transition: box-shadow 1s;
-  cursor: pointer;
+body #app .app-wrapper ul li .product-description .pr-reviews input:hover,
+body #app .app-wrapper ul li .product-description .pr-reviews input:focus {
+  border: none !important;
+  outline: none !important;
 }
 body #app .app-wrapper ul li .product-image {
   position: relative;

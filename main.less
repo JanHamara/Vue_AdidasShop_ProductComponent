@@ -69,6 +69,27 @@ body {
     height: 100vh;
 }
 
+.pr-buy-button {
+    .display(inline-block);
+    float:right;
+    //
+    background: none;
+    font-size: 0.7vw;
+    padding: 0.3vw 1vw;
+    box-shadow: 0 0 5px darkgray;
+    border: 0.25px darkgray solid;
+    transition: box-shadow 1s;
+
+    &:hover {
+        background: black;
+        color: white;
+        border: 0.25px black solid;
+        box-shadow: 0 0 10px gray;
+        transition: box-shadow 1s;
+        cursor: pointer;
+    }
+}
+
 // ------------------------
 
 body {
@@ -76,6 +97,7 @@ body {
 
     #app {
         .fs;
+        height: auto;
         .nobound;
         padding: 5vw;
         background: white;
@@ -103,6 +125,7 @@ body {
 
         .app-wrapper {
             .fs;
+            height: auto;
             padding: 5vw;
 
             ul {
@@ -116,7 +139,7 @@ body {
                 li {
                     flex: 1;
                     margin: 0 1vw;
-                    height: auto;
+                    height: 100%;
                     max-width: 20vw;
                     box-shadow: 0 0 15px darkgray;
                     transition: transform 1s, box-shadow 1s;
@@ -164,29 +187,46 @@ body {
                         }
 
                         .pr-colors {
-                            .display(inline-block);
+                            .display(block);
                             font-size: 0.8vw;
                             font-weight: 400;
                             opacity: 0.8;
+                            margin-bottom: 2vw;
                         }
 
-                        .pr-buy-button {
-                            .display(inline-block);
-                            float:right;
-                            //
-                            font-size: 0.7vw;
-                            padding: 0.3vw 1vw;
-                            box-shadow: 0 0 5px darkgray;
-                            border: 0.25px darkgray solid;
-                            transition: box-shadow 1s;
+                        .pr-review {
+                            .aligntext(right);
+                            .display(inline) !important;
+                            font-size: 0.8vw;
+                        }
+                        
+                        .pr-reviews {
+                            height: auto;
+                            margin: 2vw auto 0vw;
+                            transition: opacity 1s;
 
-                            &:hover {
-                                background: black;
-                                color: white;
-                                border: 0.25px black solid;
-                                box-shadow: 0 0 10px gray;
-                                transition: box-shadow 1s;
-                                cursor: pointer;
+                            form {
+                                height: auto;
+
+                                h6 {
+                                    font-size: 0.8vw;
+                                    margin-bottom: 1.4vw;
+                                }
+                            }
+
+                            input {
+                                width: 100%;
+                                font-size: 0.7vw;
+                                padding: 0.5vw;
+                                border: none !important;
+                                outline: none !important;
+                                background: @adidas-gray;
+                                margin-bottom: 1vw;
+
+                                &:hover, &:focus {
+                                    border: none !important;
+                                    outline: none !important;
+                                }
                             }
                         }
                     }

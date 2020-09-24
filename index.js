@@ -37,9 +37,18 @@ Vue.component('product-item', {
                 <span class="pr-price">{{ price }}&euro;</span>
                 <span class="pr-colors">{{ product.colors }} Colors</span>
 
+                <div class="pr-review" @click="showReviews">
+                    <i class="fa fa-star"></i> Reviews
+                </div>
+
                 <!-- Buy Button -->
-                <div class="pr-buy-button" v-if="selectedVariantQuantity > 0" @click="addToCart(selectedVariantId)">
+                <div class="pr-buy-button" v-if="selectedVariantQuantity > 0" @click="addToCart">
                     ADD TO CART
+                </div>
+
+                <div class="pr-reviews" v-if="reviewsVisible">
+                    <hr/>
+                    <product-review @review-submitted="addReview"></product-review>
                 </div>
             </div>
 
@@ -63,6 +72,7 @@ Vue.component('product-item', {
                 variants: this.productdata.variants
             },
             variantsVisible: false,
+            reviewsVisible: false,
             selectedVariant: 0,
         }
     },
@@ -73,12 +83,19 @@ Vue.component('product-item', {
         hideVariants() {
             this.variantsVisible = false;
         },
-        addToCart(selected) {
-            this.$emit('add-to-cart', selected);
+        addToCart() {
+            this.$emit('add-to-cart', this.selectedVariantId);
             this.product.variants[this.selectedVariant].quantity--;
         },
         updateProductImage(index) {
             this.selectedVariant = index;
+        },
+        showReviews() {
+            this.reviewsVisible = !this.reviewsVisible
+        },
+        addReview(productReview) {
+            this.product.reviews.push(productReview);
+            console.log(this.product.reviews);
         }
     },
     computed: {
@@ -108,21 +125,48 @@ Vue.component('product-item', {
     }
 });
 
+Vue.component('product-review', {
+    template: `
+        <form @submit.prevent="submitReview">
+            <h6>Review this product</h6>
+            <input type="text" name="name" v-model="name" placeholder="Your name..." required/>
+            <input type="text" name="review" v-model="review" placeholder="Your opinion..." required/>
+            <button class="pr-buy-button" type="submit">SUBMIT</button>
+        </form>
+    `,
+    props: [],
+    data () {
+        return {
+            name: null,
+            review: ""
+        }
+    },
+    methods: {
+        submitReview() {
+            let productReview = {
+                name: this.name,
+                review: this.review
+            }
+            this.$emit('review-submitted', productReview);
+            this.name = null;
+            this.review = null;
+        }
+    }
+})
 
 const app = new Vue({
     el: "#app",
     data: {
         products: [],
         cart: {
-            quantity: 0,
             items: []
-        },  
+        }
     },
     methods: {
         updateCart(e) {
-            this.cart.quantity++;
             this.cart.items.push(e);
-        }
+            console.log(this.cart.items)
+        },
     },
     created () {
         fetch("https://api.jsonbin.io/b/5f624b007243cd7e823d7bec/13", {
