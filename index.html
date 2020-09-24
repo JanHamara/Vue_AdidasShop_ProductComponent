@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>E-shop | Vue.js</title>
+
+        <link rel="stylesheet" href="./main.css">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   
+        <!-- Font Awesome -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+    
+    <body>
+        <div id="app">
+
+            <!-- Cart -->
+            <div id="product-cart">
+                <span id="'cart-image" class="fa fa-shopping-cart"></span>
+
+                <span id="cart-quantity">0</span>
+            </div>
+
+            <div class="app-wrapper">
+                <ul>
+                    <product-item v-for="product in products" :productdata="product" :key="product.id"></product-item>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Vue.js -->
+        <script src="https://unpkg.com/vue"></script>
+
+        <!-- jQuery -->
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous">
+        </script>
+
+        <!-- Bootstrap JS -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <script src="./index.js"></script>
+    </body>
+</html>

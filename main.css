@@ -1,0 +1,213 @@
+* {
+  box-sizing: border-box;
+}
+.fs {
+  width: 100%;
+  height: 100%;
+}
+.nobound {
+  margin: 0;
+  padding: 0;
+}
+/*    Mixin for perfect absolute positioning - centering    */
+.p-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.disabledProduct {
+  opacity: 0.8;
+  cursor: not-allowed !important;
+  border: 2px #b15b5f solid;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Verdana, sans-serif;
+  font-size: 100%;
+  font-weight: 700;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+body {
+  position: relative;
+}
+body #app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  padding: 5vw;
+  background: white;
+}
+body #app #product-cart {
+  position: absolute;
+  top: 2vw;
+  right: 2.5vw;
+  padding: 1vw 1.5vw;
+  box-shadow: 0 0 5px darkgray;
+  border: 0.25px darkgray solid;
+  transition: box-shadow 1s;
+}
+body #app #product-cart:hover {
+  box-shadow: 0 0 10px gray;
+  transition: box-shadow 1s;
+  cursor: pointer;
+}
+body #app #product-cart #cart-quantity {
+  margin-left: 1vw;
+}
+body #app .app-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 5vw;
+}
+body #app .app-wrapper ul {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+  height: auto;
+}
+body #app .app-wrapper ul li {
+  flex: 1;
+  margin: 0 1vw;
+  height: auto;
+  max-width: 20vw;
+  box-shadow: 0 0 15px darkgray;
+  transition: transform 1s, box-shadow 1s;
+}
+body #app .app-wrapper ul li:hover {
+  box-shadow: 0 0 20px gray;
+  transform: scale(1.1);
+  transition: transform 1s, box-shadow 1s;
+  cursor: pointer;
+}
+body #app .app-wrapper ul li:first-child {
+  margin-left: 0;
+}
+body #app .app-wrapper ul li:last-child {
+  margin-right: 0;
+}
+body #app .app-wrapper ul li .product-description {
+  width: 100%;
+  height: auto;
+  background: white;
+  overflow: hidden;
+  padding: 1vw 1.2vw;
+  z-index: 2;
+}
+body #app .app-wrapper ul li .product-description .pr-edition {
+  font-size: 0.8vw;
+  font-weight: 400;
+  opacity: 0.8;
+}
+body #app .app-wrapper ul li .product-description .pr-name {
+  font-size: 1.2vw;
+  font-weight: 400;
+  margin: 1vw 0 1vw;
+  letter-spacing: 0.1em;
+}
+body #app .app-wrapper ul li .product-description .pr-price {
+  display: block;
+  font-size: 2.2vw;
+  margin-bottom: 1vw;
+}
+body #app .app-wrapper ul li .product-description .pr-colors {
+  display: inline-block;
+  font-size: 0.8vw;
+  font-weight: 400;
+  opacity: 0.8;
+}
+body #app .app-wrapper ul li .product-description .pr-buy-button {
+  display: inline-block;
+  float: right;
+  font-size: 0.7vw;
+  padding: 0.3vw 1vw;
+  box-shadow: 0 0 5px darkgray;
+  border: 0.25px darkgray solid;
+  transition: box-shadow 1s;
+}
+body #app .app-wrapper ul li .product-description .pr-buy-button:hover {
+  background: black;
+  color: white;
+  border: 0.25px black solid;
+  box-shadow: 0 0 10px gray;
+  transition: box-shadow 1s;
+  cursor: pointer;
+}
+body #app .app-wrapper ul li .product-image {
+  position: relative;
+  width: 100%;
+  height: 15vw;
+  background: gray;
+  overflow: hidden;
+}
+body #app .app-wrapper ul li .product-image img {
+  width: 100%;
+  height: auto;
+}
+body #app .app-wrapper ul li .product-image .product-like {
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+}
+body #app .app-wrapper ul li .product-image .product-stock {
+  position: absolute;
+  top: 1vw;
+  left: 1vw;
+  font-size: 0.5vw;
+  letter-spacing: 0.1em;
+  background: #0f0f0f;
+  color: white;
+  padding: 0.5vw 1vw;
+  opacity: 0.8;
+}
+body #app .app-wrapper ul li .product-image .product-stock-alert {
+  background: #f93443;
+}
+body #app .app-wrapper ul li .product-image .product-stock-empty {
+  background: darkred;
+}
+body #app .app-wrapper ul li .product-image .product-variants-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+body #app .app-wrapper ul li .product-image .product-variants-container .product-variants {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  height: 4vw;
+  width: 100%;
+  background: rgba(236, 238, 239, 0.4);
+  box-shadow: 0 0 15px darkgray;
+  bottom: 0;
+}
+body #app .app-wrapper ul li .product-image .product-variants-container .product-variants .product-variant {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  width: 4vw;
+  height: 4vw;
+  opacity: 0.9;
+}
+body #app .app-wrapper ul li .product-image .product-variants-container .product-variants .product-variant:hover {
+  border: 0.5px black solid;
+  opacity: 1;
+}
+body #app .app-wrapper ul li .product-image .product-variants-container .product-variants .product-variant .pv-img {
+  width: 100%;
+  height: 100%;
+}
