@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>E-shop | Vue.js</title>
+        <title>Web App | Vue.js</title>
 
         <link rel="stylesheet" href="./main.css">
 
@@ -18,23 +18,8 @@
     <body>
         <div id="app">
 
-            <!-- Cart -->
-            <div id="product-cart">
-                <span id="'cart-image" class="fa fa-shopping-cart"></span>
-
-                <span id="cart-quantity">{{ cart.items.length }}</span>
-            </div>
-
-            <div class="app-wrapper">
-                <ul>
-                    <product-item 
-                    v-for="product in products" 
-                    :productdata="product" 
-                    :key="product.id" 
-                    ></product-item>
-                </ul>
-            </div>
         </div>
+
 
         <!-- Vue.js -->
         <script src="https://unpkg.com/vue"></script>
