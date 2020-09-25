@@ -5,8 +5,7 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "@babel/register": "^7.11.5",
-    "gulp": "^4.0.2"
+    "@babel/register": "^7.11.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
