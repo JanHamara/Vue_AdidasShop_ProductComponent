@@ -205,27 +205,78 @@ body {
                             margin: 2vw auto 0vw;
                             transition: opacity 1s;
 
-                            form {
-                                height: auto;
-
-                                h6 {
+                            .tabs-container {
+                                margin-bottom: 1.4vw;
+                                
+                                .tab {
                                     font-size: 0.8vw;
-                                    margin-bottom: 1.4vw;
+                                    margin-right: 0.5vw;
+                                    padding-right: 0.5vw;
+                                    font-weight: 700;
+                                    opacity: 0.4;
+                                    transition: opacity 1s;
+
+                                    &:hover {
+                                        opacity: 1;
+                                        transition: opacity 1s;
+                                    }
+                                }
+
+                                .activeTab {
+                                    opacity: 1;
                                 }
                             }
 
-                            input {
-                                width: 100%;
-                                font-size: 0.7vw;
-                                padding: 0.5vw;
-                                border: none !important;
-                                outline: none !important;
-                                background: @adidas-gray;
-                                margin-bottom: 1vw;
+                            .reviews-gallery {
+                                p {
+                                    font-size: 0.8vw;
+                                }
 
-                                &:hover, &:focus {
+                                .review-item {
+                                    border: 0.5px darkgray solid;
+                                    background: @adidas-gray;
+                                    margin-bottom: 1.5vw;
+                                    padding: 1vw;
+                                    height: auto;
+
+                                    .review-name {
+                                        .display(inline-block);
+                                        float: left;
+                                        font-size: 0.8vw;
+                                        font-weight: 700;
+                                    }
+
+                                    .review-date {
+                                        .display(inline-block);
+                                        float: right;
+                                        font-size: 0.8vw;
+                                        opacity: 0.8;
+                                    }
+
+                                    .review-content {
+                                        .display(block);
+                                        font-size: 0.8vw;
+                                        padding-top: 0.8vw;
+                                    }
+                                }
+                            }
+
+                            form {
+                                height: auto;
+
+                                input {
+                                    width: 100%;
+                                    font-size: 0.7vw;
+                                    padding: 0.5vw;
                                     border: none !important;
                                     outline: none !important;
+                                    background: @adidas-gray;
+                                    margin-bottom: 1vw;
+    
+                                    &:hover, &:focus {
+                                        border: none !important;
+                                        outline: none !important;
+                                    }
                                 }
                             }
                         }

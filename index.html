@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         <title>E-shop | Vue.js</title>
 
         <link rel="stylesheet" href="./main.css">
@@ -24,7 +27,11 @@
 
             <div class="app-wrapper">
                 <ul>
-                    <product-item v-for="product in products" :productdata="product" :key="product.id" @add-to-cart="updateCart"></product-item>
+                    <product-item 
+                    v-for="product in products" 
+                    :productdata="product" 
+                    :key="product.id" 
+                    ></product-item>
                 </ul>
             </div>
         </div>

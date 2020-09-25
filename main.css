@@ -158,14 +158,55 @@ body #app .app-wrapper ul li .product-description .pr-reviews {
   margin: 2vw auto 0vw;
   transition: opacity 1s;
 }
+body #app .app-wrapper ul li .product-description .pr-reviews .tabs-container {
+  margin-bottom: 1.4vw;
+}
+body #app .app-wrapper ul li .product-description .pr-reviews .tabs-container .tab {
+  font-size: 0.8vw;
+  margin-right: 0.5vw;
+  padding-right: 0.5vw;
+  font-weight: 700;
+  opacity: 0.4;
+  transition: opacity 1s;
+}
+body #app .app-wrapper ul li .product-description .pr-reviews .tabs-container .tab:hover {
+  opacity: 1;
+  transition: opacity 1s;
+}
+body #app .app-wrapper ul li .product-description .pr-reviews .tabs-container .activeTab {
+  opacity: 1;
+}
+body #app .app-wrapper ul li .product-description .pr-reviews .reviews-gallery p {
+  font-size: 0.8vw;
+}
+body #app .app-wrapper ul li .product-description .pr-reviews .reviews-gallery .review-item {
+  border: 0.5px darkgray solid;
+  background: #eceeef;
+  margin-bottom: 1.5vw;
+  padding: 1vw;
+  height: auto;
+}
+body #app .app-wrapper ul li .product-description .pr-reviews .reviews-gallery .review-item .review-name {
+  display: inline-block;
+  float: left;
+  font-size: 0.8vw;
+  font-weight: 700;
+}
+body #app .app-wrapper ul li .product-description .pr-reviews .reviews-gallery .review-item .review-date {
+  display: inline-block;
+  float: right;
+  font-size: 0.8vw;
+  opacity: 0.8;
+}
+body #app .app-wrapper ul li .product-description .pr-reviews .reviews-gallery .review-item .review-content {
+  display: block;
+  font-size: 0.8vw;
+  padding-top: 0.8vw;
+}
 body #app .app-wrapper ul li .product-description .pr-reviews form {
   height: auto;
 }
-body #app .app-wrapper ul li .product-description .pr-reviews form h6 {
-  font-size: 0.8vw;
-  margin-bottom: 1.4vw;
-}
-body #app .app-wrapper ul li .product-description .pr-reviews input {
+body #app .app-wrapper ul li .product-description .pr-reviews form input {
   width: 100%;
   font-size: 0.7vw;
   padding: 0.5vw;
@@ -174,8 +215,8 @@ body #app .app-wrapper ul li .product-description .pr-reviews input {
   background: #eceeef;
   margin-bottom: 1vw;
 }
-body #app .app-wrapper ul li .product-description .pr-reviews input:hover,
-body #app .app-wrapper ul li .product-description .pr-reviews input:focus {
+body #app .app-wrapper ul li .product-description .pr-reviews form input:hover,
+body #app .app-wrapper ul li .product-description .pr-reviews form input:focus {
   border: none !important;
   outline: none !important;
 }
