@@ -6,10 +6,9 @@
 
 @min: 100%;
 @max: 100%;
-@color: black;
-@adidas-gray: rgb(236, 238, 239);
-@adidas-orange: rgb(249, 52, 67);
-@bg: lightgray;
+
+@main-color: black;
+@main-bg: white;
 @font: Verdana, sans-serif;
 
 // ------------------------
@@ -31,6 +30,14 @@
 .position (@pos: absolute) {
     position: @pos;
 }
+
+.abs {
+    .position;
+}
+
+.rel {
+    .position(relative);
+}
   
 .aligntext (@align: center) {
     text-align: @align;
@@ -44,15 +51,9 @@
   transform: translate(-50%, -50%);
 }
 
-.disabledProduct {
-    opacity: 0.8;
-    cursor: not-allowed !important;
-    border: 2px rgb(177, 91, 95) solid;
-}
-
 // ------------------------
 
-html, body, main, div, span, h1, h2, h3, h4, h5, h6, img, a, ul, ol, li {
+* {
     // outline: 0.5px red solid;
 }
 
@@ -69,291 +70,12 @@ body {
     height: 100vh;
 }
 
-.pr-buy-button {
-    .display(inline-block);
-    float:right;
-    //
-    background: none;
-    font-size: 0.7vw;
-    padding: 0.3vw 1vw;
-    box-shadow: 0 0 5px darkgray;
-    border: 0.25px darkgray solid;
-    transition: box-shadow 1s;
-
-    &:hover {
-        background: black;
-        color: white;
-        border: 0.25px black solid;
-        box-shadow: 0 0 10px gray;
-        transition: box-shadow 1s;
-        cursor: pointer;
-    }
-}
-
 // ------------------------
 
 body {
     .position(relative);
 
     #app {
-        .fs;
-        height: auto;
-        .nobound;
-        padding: 5vw;
-        background: white;
 
-        #product-cart {
-            .position(absolute);
-            top: 2vw;
-            right: 2.5vw;
-            padding: 1vw 1.5vw;
-            box-shadow: 0 0 5px darkgray;
-            border: 0.25px darkgray solid;
-            transition: box-shadow 1s;
-
-            &:hover {
-                box-shadow: 0 0 10px gray;
-                transition: box-shadow 1s;
-                cursor: pointer;
-            }
-
-            #cart-quantity {
-                margin-left: 1vw;
-            }
-        }
-    
-
-        .app-wrapper {
-            .fs;
-            height: auto;
-            padding: 5vw;
-
-            ul {
-                .display(flex);
-                justify-content: space-between;
-                .nobound;
-                list-style-type: none;
-                width: 100%;
-                height: auto;
-
-                li {
-                    flex: 1;
-                    margin: 0 1vw;
-                    height: 100%;
-                    max-width: 20vw;
-                    box-shadow: 0 0 15px darkgray;
-                    transition: transform 1s, box-shadow 1s;
-
-                    &:hover {
-                        box-shadow: 0 0 20px gray;
-                        transform: scale(1.1);
-                        transition: transform 1s, box-shadow 1s;
-                        cursor: pointer;
-                    }
-
-                    &:first-child {
-                        margin-left: 0;
-                    }
-
-                    &:last-child {
-                        margin-right: 0;
-                    }
-
-                    .product-description {
-                        width: 100%;
-                        height: auto;
-                        background: white;
-                        overflow: hidden;
-                        padding: 1vw 1.2vw;
-                        z-index: 2;
-
-                        .pr-edition {
-                            font-size: 0.8vw;
-                            font-weight: 400;
-                            opacity: 0.8;
-                        }
-
-                        .pr-name {
-                            font-size: 1.2vw;
-                            font-weight: 400;
-                            margin: 1vw 0 1vw;
-                            letter-spacing: 0.1em;
-                        }
-
-                        .pr-price {
-                            .display(block);
-                            font-size: 2.2vw;
-                            margin-bottom: 1vw;
-                        }
-
-                        .pr-colors {
-                            .display(block);
-                            font-size: 0.8vw;
-                            font-weight: 400;
-                            opacity: 0.8;
-                            margin-bottom: 2vw;
-                        }
-
-                        .pr-review {
-                            .aligntext(right);
-                            .display(inline) !important;
-                            font-size: 0.8vw;
-                        }
-                        
-                        .pr-reviews {
-                            height: auto;
-                            margin: 2vw auto 0vw;
-                            transition: opacity 1s;
-
-                            .tabs-container {
-                                margin-bottom: 1.4vw;
-                                
-                                .tab {
-                                    font-size: 0.8vw;
-                                    margin-right: 0.5vw;
-                                    padding-right: 0.5vw;
-                                    font-weight: 700;
-                                    opacity: 0.4;
-                                    transition: opacity 1s;
-
-                                    &:hover {
-                                        opacity: 1;
-                                        transition: opacity 1s;
-                                    }
-                                }
-
-                                .activeTab {
-                                    opacity: 1;
-                                }
-                            }
-
-                            .reviews-gallery {
-                                p {
-                                    font-size: 0.8vw;
-                                }
-
-                                .review-item {
-                                    border: 0.5px darkgray solid;
-                                    background: @adidas-gray;
-                                    margin-bottom: 1.5vw;
-                                    padding: 1vw;
-                                    height: auto;
-
-                                    .review-name {
-                                        .display(inline-block);
-                                        float: left;
-                                        font-size: 0.8vw;
-                                        font-weight: 700;
-                                    }
-
-                                    .review-date {
-                                        .display(inline-block);
-                                        float: right;
-                                        font-size: 0.8vw;
-                                        opacity: 0.8;
-                                    }
-
-                                    .review-content {
-                                        .display(block);
-                                        font-size: 0.8vw;
-                                        padding-top: 0.8vw;
-                                    }
-                                }
-                            }
-
-                            form {
-                                height: auto;
-
-                                input {
-                                    width: 100%;
-                                    font-size: 0.7vw;
-                                    padding: 0.5vw;
-                                    border: none !important;
-                                    outline: none !important;
-                                    background: @adidas-gray;
-                                    margin-bottom: 1vw;
-    
-                                    &:hover, &:focus {
-                                        border: none !important;
-                                        outline: none !important;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .product-image {
-                        .position(relative);
-                        width: 100%;
-                        height: 15vw;
-                        background: gray;
-                        overflow: hidden;
-                        
-                        img {
-                            width: 100%;
-                            height: auto;
-                        }
-
-                        .product-like {
-                            .position(absolute);
-                            top: 1vw;
-                            right: 1vw;
-                        }
-
-                        .product-stock {
-                            .position(absolute);
-                            top: 1vw;
-                            left: 1vw;
-                            font-size: 0.5vw;
-                            letter-spacing: 0.1em;
-                            background: rgb(15, 15, 15);
-                            color: white;
-                            padding: 0.5vw 1vw;
-                            opacity: 0.8;
-                        }
-
-                        .product-stock-alert {
-                            background: @adidas-orange;
-                        }
-
-                        .product-stock-empty {
-                            background: darkred;
-                        }
-
-                        .product-variants-container {
-                            .p-center;
-                            .fs;
-
-                            .product-variants {
-                                .position(absolute);
-                                .nobound;
-                                height: 4vw;
-                                width: @max;
-                                background: rgba(236, 238, 239, 0.4);
-                                box-shadow: 0 0 15px darkgray;
-                                bottom: 0;
-
-                                .product-variant {
-                                    .display(inline-block);
-                                    .nobound;
-                                    width: 4vw;
-                                    height: 4vw;
-                                    opacity: 0.9;
-
-                                    &:hover {
-                                        border: 0.5px black solid;
-                                        opacity: 1;
-                                    }
-
-                                    .pv-img {
-                                        .fs;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 }
